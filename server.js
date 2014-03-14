@@ -6,6 +6,23 @@
  * To change this template use File | Settings | File Templates.
  */
 var connect = require('connect');
-connect.createServer(
-    connect.static('dist')
-).listen(3000);
+var io = require('socket.io');
+
+var theServer = connect.createServer(
+    connect.static(__dirname + '/dist')
+).listen(3000, function(){
+        console.log('Connect server listening on port 3000');
+    });
+
+
+
+//var ioinstance = io.listen(app.listen(app.get('port')));
+var ioinstance = io.listen(theServer);
+
+
+ioinstance.sockets.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
+});
