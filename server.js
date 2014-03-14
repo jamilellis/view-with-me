@@ -10,7 +10,7 @@ var io = require('socket.io');
 
 var theServer = connect.createServer(
     connect.static(__dirname + '/dist')
-).listen(3000, function(){
+).listen(process.env.PORT, function(){
         console.log('Connect server listening on port 3000');
     });
 
