@@ -8,10 +8,12 @@
 var connect = require('connect');
 var io = require('socket.io');
 
+var thePort = process.env.PORT || 3000;
+
 var theServer = connect.createServer(
     connect.static(__dirname + '/dist')
-).listen(process.env.PORT, function(){
-        console.log('Connect server listening on port 3000');
+).listen(thePort, function(){
+        console.log('Connect server listening on port' + thePort);
     });
 
 
