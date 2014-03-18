@@ -1,0 +1,23 @@
+{
+  "name": "bower-dashjs-baseline",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jamilellis/bower-dashjs-baseline",
+  "authors": [
+    "Ellis",
+    "Jamil (HBO) <Jamil.Ellis@hbo.com>"
+  ],
+  "description": "Bower package for baseline of the stable branch of DashJS",
+  "main": "dash.all.js",
+  "keywords": [
+    "dashjs",
+    "dash"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

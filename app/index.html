@@ -50,6 +50,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/dashjs-baseline/dash.all.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -57,55 +58,51 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
 
+
         <!-- endbuild -->
 
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io.connect('http://localhost');
-        socket.on('news', function (data) {
-            console.log(data);
-            socket.emit('my other event', { my: 'data' });
-        });
-    </script>
 
 
-    <script src="bower_components/dashjs-baseline/dash.all.js"></script>
+    <!--
 
-    <script>
-        function getUrlVars() {
-            var vars = {};
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                vars[key] = value;
-            });
-            return vars;
-        }
 
-        function startVideo() {
-            var vars = getUrlVars(),
-                    url = "http://dash.edgesuite.net/envivio/dashpr/clear/Manifest.mpd",
-                    video,
-                    context,
-                    player;
 
-            if (vars && vars.hasOwnProperty("url")) {
-                url = vars.url;
+        <script>
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                    vars[key] = value;
+                });
+                return vars;
             }
 
-            video = document.querySelector(".dash-video-player video");
-            context = new Dash.di.DashContext();
-            player = new MediaPlayer(context);
+            function startVideo() {
+                var vars = getUrlVars(),
+                        url = "http://dash.edgesuite.net/envivio/dashpr/clear/Manifest.mpd",
+                        video,
+                        context,
+                        player;
 
-            player.startup();
+                if (vars && vars.hasOwnProperty("url")) {
+                    url = vars.url;
+                }
 
-            player.attachView(video);
-            player.setAutoPlay(false);
+                video = document.querySelector(".dash-video-player video");
+                context = new Dash.di.DashContext();
+                player = new MediaPlayer(context);
 
-            player.attachSource(url);
-        }
-    </script>
-    <div class="dash-video-player">
-        <video controls="true"></video>
-    </div>
+                player.startup();
 
+                player.attachView(video);
+                player.setAutoPlay(false);
+
+                player.attachSource(url);
+            }
+        </script>
+        <div class="dash-video-player">
+            <video controls="true"></video>
+        </div>
+    -->
 </body>
 </html>
